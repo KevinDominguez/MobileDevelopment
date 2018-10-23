@@ -1,4 +1,4 @@
-package com.example.a11500107.sunshine;
+package com.mondeoflowers.activities;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;

@@ -1,4 +1,4 @@
-package com.example.a11500107.sunshine;
+package com.mondeoflowers.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
