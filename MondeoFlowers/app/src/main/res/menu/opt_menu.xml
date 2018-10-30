@@ -5,20 +5,20 @@
 
     <item
         android:id="@+id/homeMenu"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/basketMenu"
         android:icon="@drawable/shopping_basket"
-        android:title="Basket"
+        android:title="@string/basket"
         app:showAsAction="always" />
     <item
         android:id="@+id/loginMenu"
         android:title="Login/Register" />
     <item
         android:id="@+id/catalogMenu"
-        android:title="Catalog" />
+        android:title="@string/catalog" />
     <item
         android:id="@+id/aboutUsMenu"
-        android:title="Over ons" />
+        android:title="@string/over_ons" />
 
 </menu>

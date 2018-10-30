@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009933"
+    tools:context=".Fragments.HomeFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+
+    <Button
+        android:id="@+id/alphaButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="183dp"
+        android:layout_marginTop="16dp"
+        android:visibility="visible"
+        tools:srcCompat="@drawable/mondeo_dark" />
+
+
+    <TextView
+        android:id="@+id/orderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="7dp"
+        android:text="TextView"
+
+        tools:text="Bestellingen" />
+
+    <TextView
+        android:id="@+id/catalogusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+
+        tools:text="Catalogus" />
+
+    <TextView
+        android:id="@+id/contactText"
+        android:layout_width="87dp"
+        android:layout_height="59dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="410dp"
+        tools:text="Contact" />
+
+</FrameLayout>

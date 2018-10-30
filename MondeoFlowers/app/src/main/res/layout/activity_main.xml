@@ -8,55 +8,14 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/alphaButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="437dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/fragment">
+    </FrameLayout>
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="375dp"
-        android:layout_height="335dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mondeo_dark" />
 
-    <TextView
-        android:id="@+id/orderText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="7dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/catalogusText"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Bestellingen" />
-
-    <TextView
-        android:id="@+id/catalogusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="12dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/contactText"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Catalogus" />
-
-    <TextView
-        android:id="@+id/contactText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="410dp"
-        tools:text="Contact" />
 
 
 </android.support.constraint.ConstraintLayout>
