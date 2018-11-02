@@ -20,4 +20,7 @@
     <string name="catalog">Catalog</string>
     <string name="over_ons">Over ons</string>
     <string name="home">Home</string>
+    <string name="facebook_app_id">[APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

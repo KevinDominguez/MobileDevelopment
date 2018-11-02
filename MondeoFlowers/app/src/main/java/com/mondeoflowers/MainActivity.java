@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnExample;
     TextView textExample;
+    FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Home");
+        HomeFragment home = new HomeFragment();
+
+        fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
 
     }
 
