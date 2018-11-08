@@ -1,84 +1,76 @@
 package com.mondeoflowers.Handlers;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mondeoflowers.Fragments.CatalogFragment;
 import com.mondeoflowers.R;
+import com.mondeoflowers.domains.Article;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+import java.util.List;
 
-    private String[] titles = {"Chapter One",
-            "Chapter Two",
-            "Chapter Three",
-            "Chapter Four",
-            "Chapter Five",
-            "Chapter Six",
-            "Chapter Seven",
-            "Chapter Eight"};
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    private String[] details = {"Item one details",
-            "Item two details", "Item three details",
-            "Item four details", "Item file details",
-            "Item six details", "Item seven details",
-            "Item eight details"};
+    //this context we will use to inflate the layout
+    private Context mCtx;
 
-   /* private int[] images = { R.drawable.android_image_1,
-            R.drawable.android_image_2,
-            R.drawable.android_image_3,
-            R.drawable.android_image_4,
-            R.drawable.android_image_5,
-            R.drawable.android_image_6,
-            R.drawable.android_image_7,
-            R.drawable.android_image_8 };*/
+    private List<Article> productList;
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-
-        public int currentItem;
-        public ImageView itemImage;
-        public TextView itemTitle;
-        public TextView itemDetail;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            itemImage = (ImageView)itemView.findViewById(R.id.item_image);
-            itemTitle = (TextView)itemView.findViewById(R.id.item_title);
-            itemDetail =
-                    (TextView)itemView.findViewById(R.id.item_detail);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                    int position = getAdapterPosition();
-
-                    Snackbar.make(v, "Added " + position + " to shoppingcart",
-                            Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-
-                }
-            });
-        }
+    public RecyclerAdapter(CatalogFragment mCtx, List<Article> productList) {
+        //this.mCtx = mCtx;
+        this.productList = productList;
     }
 
 
-    @NonNull
+
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(mCtx);
+        View view = inflater.inflate(R.layout.card_layout, null);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.itemTitle.setText(titles[i]);
-        viewHolder.itemDetail.setText(details[i]);
-        /*viewHolder.itemImage.setImageResource(images[i]);*/
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+        Article article = productList.get(i);
+
+        myViewHolder.textViewTitle.setText(article.getArticleName());
+        myViewHolder.textViewShortDesc.setText(article.getDiscription());
+        myViewHolder.textViewPrice.setText(String.valueOf(article.getArticlePrice()));
+
+
+        ContextCompat.getDrawable(mCtx, R.drawable.common_full_open_on_phone);
+        //myViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable());
+
     }
+
 
     @Override
     public int getItemCount() {
-        return titles.length;
+        return 0;
     }
+
+    class MyViewHolder extends RecyclerView.ViewHolder {
+
+        TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
+        ImageView imageView;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+
+            textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
+            textViewPrice = itemView.findViewById(R.id.textViewPrice);
+            imageView = itemView.findViewById(R.id.imageView);
+        }
+    }
+
 }

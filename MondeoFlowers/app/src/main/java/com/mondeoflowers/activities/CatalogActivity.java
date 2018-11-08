@@ -24,7 +24,7 @@ public class CatalogActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerAdapter();
+        //adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
     }
 
