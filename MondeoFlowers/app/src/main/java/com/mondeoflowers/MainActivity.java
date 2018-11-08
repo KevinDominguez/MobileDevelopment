@@ -12,12 +12,13 @@ import com.mondeoflowers.Fragments.AboutUsFragment;
 import com.mondeoflowers.Fragments.BasketFragment;
 import com.mondeoflowers.Fragments.CatalogFragment;
 import com.mondeoflowers.Fragments.HomeFragment;
-import com.mondeoflowers.Fragments.LoginFragment;
+import com.mondeoflowers.Fragments.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnExample;
     TextView textExample;
+
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
@@ -62,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().replace(R.id.fragment, aboutUs).commit();
                 break;
             case R.id.loginMenu:
-                setTitle("Login");
-                LoginFragment login = new LoginFragment();
+                setTitle("UserSettings");
+                RegisterFragment register = new RegisterFragment();
 
-                fragmentManager.beginTransaction().replace(R.id.fragment, login).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment, register).commit();
                 break;
             case R.id.catalogMenu:
                 setTitle("Catalog");
