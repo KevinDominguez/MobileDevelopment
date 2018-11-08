@@ -23,4 +23,10 @@
     <string name="facebook_app_id">[APP_ID]</string>
     <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
     <string name="title_activity_maps">Map</string>
+    <string name="voornaam_achternaam">Voornaam + Achternaam</string>
+    <string name="gsm_number">Gsm nummer</string>
+    <string name="e_mail_adres">e-mail adres</string>
+    <string name="postcode">postcode</string>
+    <string name="register">Register</string>
+    <string name="straat_nr">Straat + Nr°</string>
 </resources>
