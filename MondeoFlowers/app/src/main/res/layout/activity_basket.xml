@@ -7,7 +7,7 @@
     tools:context=".activities.BasketActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewBasket"
         android:layout_width="match_parent"
         android:layout_height="478dp"
         android:layout_marginTop="32dp"

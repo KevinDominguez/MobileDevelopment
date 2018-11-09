@@ -15,12 +15,12 @@ import com.mondeoflowers.Fragments.BasketFragment;
 import com.mondeoflowers.Fragments.CatalogFragment;
 import com.mondeoflowers.Fragments.HomeFragment;
 import com.mondeoflowers.Fragments.RegisterFragment;
+import com.mondeoflowers.activities.BasketActivity;
 import com.mondeoflowers.activities.Catalog2Activity;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnExample;
     TextView textExample;
 
     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -91,10 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
                 break;
             case R.id.basketMenu:
-                setTitle("basket");
-                BasketFragment basket= new BasketFragment();
+                setTitle("Basket");
+                BasketActivity basket = new BasketActivity();
 
-                fragmentManager.beginTransaction().replace(R.id.fragment, basket).commit();
+                Intent intent = new Intent(MainActivity.this, BasketActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.aboutUsMenu:
                 setTitle("aboutUs");
@@ -112,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 setTitle("Catalog");
                 Catalog2Activity catalog = new Catalog2Activity();
 
-                Intent intent = new Intent(MainActivity.this, Catalog2Activity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(MainActivity.this, Catalog2Activity.class);
+                startActivity(intent2);
 
                 break;
 

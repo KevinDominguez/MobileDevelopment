@@ -11,16 +11,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <Button
-        android:id="@+id/alphaButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="24dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
@@ -44,7 +34,6 @@
         android:text="Welkom bij de MondeoFlowers App bestel hier eenvoudig bestellingen en wij leveren het aan huis!"
         android:textColor="#ffffff"
         android:textSize="60px"
-        app:layout_constraintBottom_toTopOf="@+id/alphaButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
