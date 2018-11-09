@@ -27,6 +27,13 @@ public class BasketActivity extends AppCompatActivity {
 
         basketList.add(new Article("Enkel", "Bloemetjes", 10, 4, "Some text", ""));
 
+        double sum = 0;
+
+        for (int i = 0; i == basketList.size(); i++){
+            sum += basketList.get(i).getArticlePrice();
+        }
+
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewBasket);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
