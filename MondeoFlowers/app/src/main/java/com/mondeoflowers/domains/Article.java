@@ -8,13 +8,21 @@ public class Article {
     private double articlePrice;
     private int quantity;
     private String discription;
+    private String image;
 
-    public Article( String articleType, String articleName, double articlePrice, int quantity, String discription) {
+    public Article( String articleType, String articleName, double articlePrice, int quantity, String discription, String Image) {
         this.articleType = articleType;
         this.articleName = articleName;
         this.articlePrice = articlePrice;
         this.quantity = quantity;
         this.discription = discription;
+        this.image = Image;
+    }
+
+    public String getImage(){ return image; }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getArticleID() {

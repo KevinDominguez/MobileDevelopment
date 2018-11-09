@@ -1,9 +1,11 @@
 package com.mondeoflowers;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,8 @@ import com.mondeoflowers.Fragments.BasketFragment;
 import com.mondeoflowers.Fragments.CatalogFragment;
 import com.mondeoflowers.Fragments.HomeFragment;
 import com.mondeoflowers.Fragments.RegisterFragment;
+import com.mondeoflowers.activities.Catalog2Activity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,9 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.catalogMenu:
                 setTitle("Catalog");
-                CatalogFragment catalog = new CatalogFragment();
+                Catalog2Activity catalog = new Catalog2Activity();
 
-                fragmentManager.beginTransaction().replace(R.id.fragment, catalog).commit();
+                Intent intent = new Intent(MainActivity.this, Catalog2Activity.class);
+                startActivity(intent);
+
                 break;
 
         }

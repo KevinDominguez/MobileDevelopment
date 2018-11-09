@@ -2,7 +2,6 @@ package com.mondeoflowers.Handlers;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mondeoflowers.Fragments.CatalogFragment;
+import com.bumptech.glide.Glide;
 import com.mondeoflowers.R;
 import com.mondeoflowers.domains.Article;
 
@@ -24,8 +23,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     private List<Article> productList;
 
-    public RecyclerAdapter(CatalogFragment mCtx, List<Article> productList) {
-        //this.mCtx = mCtx;
+    public RecyclerAdapter(Context mCtx, List<Article> productList) {
+        this.mCtx = mCtx;
         this.productList = productList;
     }
 
@@ -39,12 +38,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
         Article article = productList.get(i);
+
+        Glide.with(mCtx)
+                .load(article.getImage())
+                .into(myViewHolder.imageView);
 
         myViewHolder.textViewTitle.setText(article.getArticleName());
         myViewHolder.textViewShortDesc.setText(article.getDiscription());
-        myViewHolder.textViewPrice.setText(String.valueOf(article.getArticlePrice()));
+        myViewHolder.textViewPrice.setText(String.valueOf(String.valueOf(article.getArticlePrice())));
 
 
         ContextCompat.getDrawable(mCtx, R.drawable.common_full_open_on_phone);
@@ -55,7 +58,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return productList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
