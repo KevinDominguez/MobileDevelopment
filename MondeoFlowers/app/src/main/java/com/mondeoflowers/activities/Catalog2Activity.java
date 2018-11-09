@@ -1,16 +1,25 @@
 package com.mondeoflowers.activities;
 
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.mondeoflowers.Fragments.AboutUsFragment;
+import com.mondeoflowers.Fragments.BasketFragment;
+import com.mondeoflowers.Fragments.HomeFragment;
+import com.mondeoflowers.Fragments.RegisterFragment;
 import com.mondeoflowers.Handlers.RecyclerAdapter;
+import com.mondeoflowers.MainActivity;
 import com.mondeoflowers.R;
 import com.mondeoflowers.domains.Article;
 
@@ -23,7 +32,58 @@ import java.util.List;
 
 public class Catalog2Activity extends AppCompatActivity {
 
-    private static final String URL_PRODUCTS = "http://192.168.116.1/MyApi/Api.php";
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.opt_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Intent intent = new Intent(Catalog2Activity.this, MainActivity.class);
+        startActivity(intent);
+
+        switch (item.getItemId()) {
+            case R.id.homeMenu:
+                setTitle("Home");
+                HomeFragment home = new HomeFragment();
+                intent.putExtra("frgToLoad","home");
+                startActivity(intent);
+                break;
+            case R.id.basketMenu:
+                setTitle("basket");
+                BasketFragment basket= new BasketFragment();
+                intent.putExtra("frgToLoad","basket");
+                startActivity(intent);
+
+                break;
+            case R.id.aboutUsMenu:
+                setTitle("aboutUs");
+                AboutUsFragment aboutUs = new AboutUsFragment();
+                intent.putExtra("frgToLoad","about");
+                startActivity(intent);
+
+                break;
+            case R.id.loginMenu:
+                setTitle("UserSettings");
+                RegisterFragment register = new RegisterFragment();
+                intent.putExtra("frgToLoad","register");
+                startActivity(intent);
+
+                break;
+            case R.id.catalogMenu:
+
+                break;
+
+        }
+
+        return true;
+
+    }
+
+    private static final String URL_PRODUCTS = "http://192.168.33.1/MyApi/Api.php";
 
     List<Article> productList;
 

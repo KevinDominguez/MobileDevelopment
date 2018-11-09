@@ -36,13 +36,49 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Home");
-        HomeFragment home = new HomeFragment();
 
-        fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
+        if (getIntent().getExtras() == null) {
 
-    }
+            HomeFragment home = new HomeFragment();
 
+            fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
+
+        }
+         else {
+            String intentFragment = getIntent().getExtras().getString("frgToLoad");
+            switch (getIntent().getExtras().getString("frgToLoad")) {
+                case "basket":
+                    setTitle("basket");
+                    BasketFragment basket = new BasketFragment();
+
+                    fragmentManager.beginTransaction().replace(R.id.fragment, basket).commit();
+                    break;
+                case "about":
+                    setTitle("aboutUs");
+                    AboutUsFragment aboutUs = new AboutUsFragment();
+
+                    fragmentManager.beginTransaction().replace(R.id.fragment, aboutUs).commit();
+                    break;
+                case "register":
+                    setTitle("UserSettings");
+                    RegisterFragment register = new RegisterFragment();
+
+                    fragmentManager.beginTransaction().replace(R.id.fragment, register).commit();
+                    break;
+                case "catalog":
+
+                    break;
+                case "home":
+                    HomeFragment home = new HomeFragment();
+
+                    fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
+                    break;
+
+            }
+
+        }
+
+}
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
