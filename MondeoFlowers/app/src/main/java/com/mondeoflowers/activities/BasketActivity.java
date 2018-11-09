@@ -41,4 +41,22 @@ public class BasketActivity extends AppCompatActivity {
         RecyclerAdapter adapter = new RecyclerAdapter(BasketActivity.this, basketList);
         recyclerView.setAdapter(adapter);
     }
+
+    public void onCreate() {
+        super.onCreate();
+        if (null == currentTasks) {
+            currentTasks = new ArrayList<task>();
+        }
+
+        // load tasks from preference
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS_FILE, Context.MODE_PRIVATE);
+
+        try {
+            currentTasks = (ArrayList<task>) ObjectSerializer.deserialize(prefs.getString(TASKS, ObjectSerializer.serialize(new ArrayList<task>())));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
