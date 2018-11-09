@@ -1,6 +1,10 @@
 package com.mondeoflowers.Handlers;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +13,13 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.mondeoflowers.Fragments.AboutUsFragment;
+import com.mondeoflowers.MainActivity;
 import com.mondeoflowers.R;
+import com.mondeoflowers.activities.DetailActivity;
 import com.mondeoflowers.domains.Article;
 
 import java.util.List;
@@ -39,7 +47,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
-        Article article = productList.get(i);
+        final Article article = productList.get(i);
 
         Glide.with(mCtx)
                 .load(article.getImage())
@@ -48,6 +56,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         myViewHolder.textViewTitle.setText(article.getArticleName());
         myViewHolder.textViewShortDesc.setText(article.getDiscription());
         myViewHolder.textViewPrice.setText(String.valueOf(String.valueOf(article.getArticlePrice())));
+
+        myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mCtx, DetailActivity.class);
+                Bundle info = new Bundle();
+                info.putString("ArticleName", article.getArticleName());
+                info.putString("ArticleDescription", article.getDiscription());
+                info.putString("ArticleImage", article.getImage());
+                info.putDouble("ArticlePrice", article.getArticlePrice());
+                intent.putExtras(info);
+                mCtx.startActivity(intent);
+
+                //Toast.makeText(mCtx, "card view Here we come", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
 
 
     }
@@ -72,7 +100,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             imageView = itemView.findViewById(R.id.imageView);
 
 
+
+
         }
+
+
+
+
+
     }
+
 
 }
