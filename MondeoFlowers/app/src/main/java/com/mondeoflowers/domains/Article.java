@@ -19,6 +19,14 @@ public class Article {
         this.image = Image;
     }
 
+    public Article(String articleName, double articlePrice,String discription, String Image, int id) {
+        this.articleName = articleName;
+        this.articlePrice = articlePrice;
+        this.discription = discription;
+        this.image = Image;
+        this.articleID = id;
+    }
+
     public String getImage(){ return image; }
 
     public void setImage(String image) {
