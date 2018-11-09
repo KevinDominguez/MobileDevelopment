@@ -83,7 +83,7 @@ public class Catalog2Activity extends AppCompatActivity {
 
     }
 
-    private static final String URL_PRODUCTS = "http://192.168.116.1/MyApi/Api.php";
+    private static final String URL_PRODUCTS = "http://192.168.33.1/MyApi/Api.php";
 
     List<Article> productList;
 
