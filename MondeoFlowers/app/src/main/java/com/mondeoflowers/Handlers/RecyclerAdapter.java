@@ -50,9 +50,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         myViewHolder.textViewPrice.setText(String.valueOf(String.valueOf(article.getArticlePrice())));
 
 
-        ContextCompat.getDrawable(mCtx, R.drawable.common_full_open_on_phone);
-        //myViewHolder.imageView.setImageDrawable(mCtx.getResources().getDrawable());
-
     }
 
 
@@ -73,6 +70,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             imageView = itemView.findViewById(R.id.imageView);
+
+
         }
     }
 
