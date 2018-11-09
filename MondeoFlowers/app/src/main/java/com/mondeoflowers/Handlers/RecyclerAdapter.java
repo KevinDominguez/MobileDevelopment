@@ -67,6 +67,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                 info.putString("ArticleDescription", article.getDiscription());
                 info.putString("ArticleImage", article.getImage());
                 info.putDouble("ArticlePrice", article.getArticlePrice());
+                info.putInt("ArticleId", article.getArticleID());
                 intent.putExtras(info);
                 mCtx.startActivity(intent);
 
