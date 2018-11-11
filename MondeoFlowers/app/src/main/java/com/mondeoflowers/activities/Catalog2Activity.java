@@ -83,7 +83,7 @@ public class Catalog2Activity extends AppCompatActivity {
 
     }
 
-    private static final String URL_PRODUCTS = "http://192.168.33.1/MyApi/Api.php";
+    private static final String URL_PRODUCTS = "http://192.168.116.1/MyApi/Api.php";
 
     List<Article> productList;
 
@@ -102,7 +102,11 @@ public class Catalog2Activity extends AppCompatActivity {
 
         productList = new ArrayList<>();
 
-        loadProducts();
+        new Thread(new Runnable() {
+            public void run() {
+                loadProducts();
+            }
+        }).start();
 
         //creating recyclerview adapter
         RecyclerAdapter adapter = new RecyclerAdapter(this, productList);
