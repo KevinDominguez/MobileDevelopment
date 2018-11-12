@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.AboutUsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="381dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.864" />
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="116dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="0478191531"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editText2"
+        android:layout_width="158dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="tel: Vennestraat"
+        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/mapview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editText3"
+        android:layout_width="116dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="159dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="04781915351"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TextView
+        android:id="@+id/editText4"
+        android:layout_width="151dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="157dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="tel: Shhopping2"
+        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/mapview"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+</android.support.constraint.ConstraintLayout>

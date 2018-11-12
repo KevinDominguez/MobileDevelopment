@@ -53,10 +53,11 @@ public class Catalog2Activity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.basketMenu:
-                setTitle("basket");
-                BasketFragment basket= new BasketFragment();
-                intent.putExtra("frgToLoad","basket");
-                startActivity(intent);
+                setTitle("Basket");
+                BasketActivity basket = new BasketActivity();
+
+                Intent intent2 = new Intent(Catalog2Activity.this, BasketActivity.class);
+                startActivity(intent2);
 
                 break;
             case R.id.aboutUsMenu:
@@ -83,7 +84,7 @@ public class Catalog2Activity extends AppCompatActivity {
 
     }
 
-    private static final String URL_PRODUCTS = "http://192.168.116.1/MyApi/Api.php";
+    private static final String URL_PRODUCTS = "http://192.168.33.1/MyApi/Api.php";
 
     List<Article> productList;
 

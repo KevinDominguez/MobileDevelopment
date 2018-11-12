@@ -10,9 +10,17 @@
         android:id="@+id/recyclerViewBasket"
         android:layout_width="match_parent"
         android:layout_height="478dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="200px"
+        android:text="Afrekenen"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

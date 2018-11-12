@@ -85,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         switch (item.getItemId()) {
             case R.id.homeMenu:
-                setTitle("Home");
+                setTitle("Hoofdpagina");
                 HomeFragment home = new HomeFragment();
 
                 fragmentManager.beginTransaction().replace(R.id.fragment, home).commit();
                 break;
             case R.id.basketMenu:
-                setTitle("Basket");
+                setTitle("Winkel mandje ");
                 BasketActivity basket = new BasketActivity();
 
                 Intent intent = new Intent(MainActivity.this, BasketActivity.class);
@@ -99,13 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.aboutUsMenu:
-                setTitle("aboutUs");
+                setTitle("Over ons");
                 AboutUsFragment aboutUs = new AboutUsFragment();
 
                 fragmentManager.beginTransaction().replace(R.id.fragment, aboutUs).commit();
                 break;
             case R.id.loginMenu:
-                setTitle("UserSettings");
+                setTitle("Gebruiker gegevens");
                 RegisterFragment register = new RegisterFragment();
 
                 fragmentManager.beginTransaction().replace(R.id.fragment, register).commit();

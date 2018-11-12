@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Tasks;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.mondeoflowers.Handlers.ObjectSerializer;
 import com.mondeoflowers.R;
 import com.mondeoflowers.domains.Article;
@@ -35,24 +38,17 @@ public class DetailActivity extends AppCompatActivity {
     private TextView descriptionText;
     private Bundle articleBundle;
     private ImageView image;
-    private List<Article> articleList;
+    SharedPreferences shref;
+    SharedPreferences.Editor editor;
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-
-
-
-
-
-
         articleBundle = new Bundle();
         articleBundle = getIntent().getExtras();
-
-
-
 
         nameText = (TextView) findViewById(R.id.textViewArticleName);
         nameText.setText(articleBundle.getString("ArticleName"));
@@ -65,15 +61,20 @@ public class DetailActivity extends AppCompatActivity {
         image =(ImageView) findViewById(R.id.imageView);
         Glide.with(this).load(articleBundle.getString("ArticleImage")).into(image);
 
-
-        //btnRegister = (Button) getActivity().findViewById(R.id.buttonRegister);
+        addToCartButton = (Button) findViewById(R.id.buttonAdToBasket);
         //btnRegister.setOnClickListener(new View.OnClickListener() {
         addToCartButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
 
+                shref = getSharedPreferences("shoppingCart", Context.MODE_PRIVATE);
+                String response=shref.getString("shoppingList" , "");
+                ArrayList<Article> articleList = gson.fromJson(response,
+                        new TypeToken<List<Article>>(){}.getType());
 
-
+                if (articleList == null) {
+                        articleList = new ArrayList<>();
+                }
                 Article newArticle = new Article(
                         articleBundle.getString("ArticleName"),
                         articleBundle.getDouble("ArticlePrice"),
@@ -81,13 +82,21 @@ public class DetailActivity extends AppCompatActivity {
                         articleBundle.getString("ArticleImage"),
                         articleBundle.getInt("ArticleId"));
 
+                articleList.add(newArticle);
+                String json = gson.toJson(articleList);
+
+                editor = shref.edit();
+                editor.remove("shoppingList").commit();
+                editor.putString("shoppingList", json);
+                editor.commit();
+
 
             }
         });
         }
-    public void addTask(Article a) {
+  /*  public void addTask(Article a) {
         if (null == articleList) {
-            articleList = new ArrayList<Article>();
+            articleList = new ArrayList<>();
         }
         articleList.add(a);
 
@@ -96,9 +105,14 @@ public class DetailActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         try {
             editor.putString("List", ObjectSerializer.serialize(articleList));
+            Log.d("myTag", ObjectSerializer.serialize(articleList));
         } catch (IOException e) {
             e.printStackTrace();
         }
         editor.commit();
-    }
+
+
+    }*/
+
+
 }

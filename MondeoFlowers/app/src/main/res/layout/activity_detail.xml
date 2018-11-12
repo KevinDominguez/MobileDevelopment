@@ -10,9 +10,11 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
-        android:layout_height="273dp"
+        android:layout_height="0dp"
         android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewArticleName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,43 +22,53 @@
         android:id="@+id/textViewArticleName"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="11dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewArticleDescription"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
         android:id="@+id/textViewArticlePrice"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="11dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAdToBasket"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewArticleId" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewArticleDescription" />
 
     <TextView
         android:id="@+id/textViewArticleDescription"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="11dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewArticlePrice"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="101dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewArticleName" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="265dp"
+        android:id="@+id/buttonAdToBasket"
+        android:layout_width="0dp"
         android:layout_height="62dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginEnd="69dp"
-        android:text="Button"
+        android:text="Voeg toe aan winkelmand"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="529dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
